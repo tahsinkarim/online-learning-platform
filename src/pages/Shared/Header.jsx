@@ -124,7 +124,11 @@ const Header = () => {
         <div className='navbar-end'>
           {user?.uid ? (
             <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
-              <img className='w-9 rounded-full mx-2' src={userImage()} alt='' />
+              <img
+                className='w-9 h-9 object-cover rounded-full mx-2'
+                src={userImage()}
+                alt=''
+              />
             </div>
           ) : (
             <Link className='btn btn-primary' to='/login'>

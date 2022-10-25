@@ -2,7 +2,7 @@ import { mdiCheck, mdiStar, mdiStarHalfFull } from "@mdi/js";
 import Icon from "@mdi/react";
 
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const CoursePage = () => {
   const data = useLoaderData();
@@ -17,6 +17,7 @@ const CoursePage = () => {
     goals,
     description,
     author,
+    course_id,
   } = data;
   return (
     <div>
@@ -49,9 +50,11 @@ const CoursePage = () => {
             Get access to this course and all the other features on this website
           </p>
           <p className='text-3xl font-bold mb-4'>${price}</p>
-          <button className='w-full py-3 font-semibold rounded-lg bg-black bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
-            Buy this course
-          </button>
+          <Link to={`/checkout/${course_id}`}>
+            <button className='w-full py-3 font-semibold rounded-lg bg-black bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
+              Buy this course
+            </button>
+          </Link>
         </div>
       </div>
       <div className='mt-12 container mx-auto lg:max-w-6xl'>

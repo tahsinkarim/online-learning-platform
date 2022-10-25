@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className='bg-gradient-to-r from-hero-dark-black via-hero-light-black to-hero-dark-black text-white'>
-      <div className='mt-16 footer p-10 container mx-auto'>
+      <div className='footer p-10 container mx-auto'>
         <div>
           <span className='footer-title'>Services</span>
           <a className='link link-hover'>Branding</a>

@@ -38,9 +38,9 @@ const Card = ({ data }) => {
           <p>
             <small>$</small>
             <span className='font-bold mr-2'>{price}</span>
-            <small className='line-through'>
-              $<span>{previous_price}</span>
-            </small>
+            {previous_price && (
+              <small className='line-through'>${previous_price}</small>
+            )}
           </p>
         </div>
         <div className='card-actions justify-end'>

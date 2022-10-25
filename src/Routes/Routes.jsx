@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
+import Checkout from "../pages/Checkout/Checkout";
 import CoursePage from "../pages/CoursePage/CoursePage";
 import Courses from "../pages/Courses/Courses";
 import Home from "../pages/Home/Home";
@@ -31,6 +32,15 @@ export const router = createBrowserRouter([
       {
         path: "/course/:id",
         element: <CoursePage></CoursePage>,
+        loader: ({ params }) => {
+          return fetch(
+            `https://learn-code-server.vercel.app/course/${params.id}`
+          );
+        },
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
         loader: ({ params }) => {
           return fetch(
             `https://learn-code-server.vercel.app/course/${params.id}`
