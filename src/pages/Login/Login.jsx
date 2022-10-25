@@ -1,8 +1,9 @@
-import { mdiEmailOutline, mdiGithub, mdiGoogle, mdiLockOutline } from "@mdi/js";
+import { mdiEmailOutline, mdiLockOutline } from "@mdi/js";
 import Icon from "@mdi/react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import LoginWith from "./LoginWith";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
@@ -98,24 +99,8 @@ const Login = () => {
                 </div>
               </form>
               <hr className='mb-6' />
-              <div className='flex -mx-3'>
-                <div className='w-full px-3 mb-2'>
-                  <button className='flex gap-7 w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold'>
-                    <Icon path={mdiGoogle} size={1} className='ml-4'></Icon>
-                    Continue With Google
-                  </button>
-                </div>
-              </div>
-              <div className='flex -mx-3'>
-                <div className='w-full px-3 mb-2'>
-                  <button className='flex gap-7 w-full max-w-xs mx-auto bg-gray-900 hover:bg-gray-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold'>
-                    <Icon path={mdiGithub} size={1} className='ml-4'></Icon>
-                    Continue with Github
-                  </button>
-                </div>
-              </div>
+              <LoginWith></LoginWith>
             </div>
-
             <div className='hidden md:block w-1/2 bg-indigo-500 py-10 px-10'>
               <svg
                 id='a87032b8-5b37-4b7e-a4d9-4dbfbe394641'
