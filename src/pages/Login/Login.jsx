@@ -1,17 +1,20 @@
 import { mdiEmailOutline, mdiLockOutline } from "@mdi/js";
 import Icon from "@mdi/react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import LoginWith from "./LoginWith";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -20,10 +23,11 @@ const Login = () => {
         const user = res.user;
         console.log(user);
         form.reset();
+        toast.success("Successfully Logged in");
         navigate("/");
       })
       .catch((error) => {
-        console.error(error);
+        setError(error.message);
       });
   };
 
@@ -41,6 +45,26 @@ const Login = () => {
                   <h1 className='font-bold text-3xl text-gray-900'>Log in</h1>
                   <p>Enter email and password to login</p>
                 </div>
+                {error && (
+                  <div className='alert alert-error shadow-lg'>
+                    <div>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        className='stroke-current flex-shrink-0 h-6 w-6'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'
+                        />
+                      </svg>
+                      <span>{error}</span>
+                    </div>
+                  </div>
+                )}
                 <div>
                   <div className='flex -mx-3'>
                     <div className='w-full px-3 mb-5'>
@@ -84,7 +108,10 @@ const Login = () => {
                           placeholder='************'
                         />
                       </div>
-                      <Link to='/register' className='ml-2 hover:underline'>
+                      <Link
+                        to='/register'
+                        className='ml-2 underline text-clr-violet'
+                      >
                         <small>Don't have an account? Register</small>
                       </Link>
                     </div>

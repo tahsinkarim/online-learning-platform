@@ -5,34 +5,48 @@ import {
   mdiLockOutline,
 } from "@mdi/js";
 import Icon from "@mdi/react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import LoginWith from "./LoginWith";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateInfo } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
     const form = e.target;
     const name = form.name.value;
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+    const data = { displayName: name, photoURL: photoURL };
     createUser(email, password)
       .then((res) => {
         const user = res.user;
         form.reset();
         console.log(user);
+        handleUpdateInfo(data);
+        toast.success("Successfully Registered");
         navigate("/");
       })
       .catch((error) => {
-        console.error(error);
+        setError(error.message);
       });
     console.log(name, email, photoURL, password);
+  };
+
+  const handleUpdateInfo = (data) => {
+    updateInfo(data)
+      .then(() => {})
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   return (
@@ -254,6 +268,26 @@ const Register = () => {
                   <h1 className='font-bold text-3xl text-gray-900'>REGISTER</h1>
                   <p>Enter your information to register</p>
                 </div>
+                {error && (
+                  <div className='alert alert-error shadow-lg'>
+                    <div>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        className='stroke-current flex-shrink-0 h-6 w-6'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'
+                        />
+                      </svg>
+                      <span>{error}</span>
+                    </div>
+                  </div>
+                )}
                 <div>
                   <div className='flex -mx-3'>
                     <div className='w-full px-3 mb-5'>
@@ -341,7 +375,10 @@ const Register = () => {
                           placeholder='************'
                         />
                       </div>
-                      <Link to='/login' className='ml-2 hover:underline'>
+                      <Link
+                        to='/login'
+                        className='ml-2 underline text-clr-violet'
+                      >
                         <small>Already have an account ? Log in</small>
                       </Link>
                     </div>

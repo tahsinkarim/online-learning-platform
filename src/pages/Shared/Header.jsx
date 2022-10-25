@@ -1,11 +1,23 @@
 import { mdiCodeGreaterThanOrEqual } from "@mdi/js";
 import Icon from "@mdi/react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  const [toggle, setToggle] = useState(true);
+
+  const userImage = () => {
+    if (user.photoURL) {
+      return user.photoURL;
+    }
+    return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR-l27mIia8PZNl8CAp-E65971pr0dLEfnwgOeOLIVHErs7yEixuAQ8hEd9gAbArgNAw4&usqp=CAU";
+  };
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
   console.log(user);
 
   const handleLogout = () => {
@@ -17,7 +29,11 @@ const Header = () => {
   };
   return (
     <div>
-      <div className='navbar bg-base-100 shadow-md'>
+      <div
+        className={`navbar bg-base-100 shadow-md ${
+          toggle ? "bg-base-100" : "bg-hero-light-black text-white"
+        }`}
+      >
         <div className='navbar-start'>
           <div className='dropdown'>
             <label tabIndex='0' className='btn btn-ghost md:hidden'>
@@ -38,7 +54,9 @@ const Header = () => {
             </label>
             <ul
               tabIndex='0'
-              className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+              className={`menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 ${
+                toggle ? "bg-base-100" : "bg-hero-light-black text-white"
+              }`}
             >
               <li>
                 <Link to='/'>Home</Link>
@@ -52,10 +70,25 @@ const Header = () => {
               <li>
                 <Link to='/blog'>Blog</Link>
               </li>
+              <li>
+                <p
+                  onClick={handleToggle}
+                  className={`${
+                    toggle
+                      ? "bg-hero-light-black text-white"
+                      : "bg-base-100 text-black"
+                  }`}
+                >
+                  {toggle ? "Dark Theme" : "Light Theme"}
+                </p>
+              </li>
             </ul>
           </div>
-          <Link to='/' className='btn btn-ghost normal-case text-xl'>
-            <Icon path={mdiCodeGreaterThanOrEqual} size={2}></Icon>
+          <Link
+            to='/'
+            className='btn btn-ghost normal-case text-lg md:text-2xl font-bold'
+          >
+            <Icon path={mdiCodeGreaterThanOrEqual} size={1}></Icon>
             <span></span>
             Code It
           </Link>
@@ -74,17 +107,35 @@ const Header = () => {
             <li>
               <Link to='/blog'>Blog</Link>
             </li>
+            <li>
+              <p
+                onClick={handleToggle}
+                className={`${
+                  toggle
+                    ? "bg-hero-light-black text-white"
+                    : "bg-base-100 text-black"
+                }`}
+              >
+                {toggle ? "Dark Theme" : "Light Theme"}
+              </p>
+            </li>
           </ul>
         </div>
         <div className='navbar-end'>
           {user?.uid ? (
+            <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
+              <img className='w-9 rounded-full mx-2' src={userImage()} alt='' />
+            </div>
+          ) : (
+            <Link className='btn btn-primary' to='/login'>
+              Login{" "}
+            </Link>
+          )}
+
+          {user?.uid && (
             <button className='btn btn-primary' onClick={handleLogout}>
               Logout
             </button>
-          ) : (
-            <Link className='btn btn-primary' to='/login'>
-              Login
-            </Link>
           )}
         </div>
       </div>
