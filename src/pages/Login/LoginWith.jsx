@@ -2,6 +2,7 @@ import { mdiGithub, mdiGoogle } from "@mdi/js";
 import Icon from "@mdi/react";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const LoginWith = () => {
@@ -10,11 +11,14 @@ const LoginWith = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
+  const navigate = useNavigate();
+
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
       .then((res) => {
         const user = res.user;
         console.log(user);
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -25,6 +29,7 @@ const LoginWith = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
