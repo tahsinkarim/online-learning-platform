@@ -54,7 +54,7 @@ const CoursePage = () => {
           </button>
         </div>
       </div>
-      <div className='mt-12 container mx-auto'>
+      <div className='mt-12 container mx-auto lg:max-w-6xl'>
         <div>
           <h1 className='font-bold text-2xl text-black'>Goals</h1>
           <ul className='my-5'>
@@ -72,7 +72,7 @@ const CoursePage = () => {
         </div>
         <div>
           <h1 className='font-bold text-2xl text-black'>Description</h1>
-          <p>{description}</p>
+          <p className='max-w-2xl mt-4'>{description}</p>
         </div>
       </div>
     </div>
