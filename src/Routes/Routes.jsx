@@ -6,6 +6,7 @@ import Courses from "../pages/Courses/Courses";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +41,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(
             `https://learn-code-server.vercel.app/course/${params.id}`

@@ -2,7 +2,7 @@ import { mdiEmailOutline, mdiLockOutline } from "@mdi/js";
 import Icon from "@mdi/react";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import LoginWith from "./LoginWith";
 
@@ -11,6 +11,9 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +27,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         toast.success("Successfully Logged in");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
