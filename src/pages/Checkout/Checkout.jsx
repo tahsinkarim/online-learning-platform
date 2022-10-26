@@ -14,8 +14,8 @@ const Checkout = () => {
 
   console.log(data);
   return (
-    <div className='bg-base-300'>
-      <div className='container lg:max-w-5xl mx-auto px-2 md:flex py-16'>
+    <div className='bg-base-300 py-20'>
+      <div className='container lg:max-w-5xl mx-auto px-2 md:flex py-10 bg-base-100'>
         <div className='md:w-1/2'>
           <form
             onSubmit={handleSubmit}
@@ -110,14 +110,14 @@ const Checkout = () => {
           </div>
           {/* Modal End */}
         </div>
-        <div className='md:w-1/2 bg-base-100 rounded-r-md'>
+        <div className='md:w-1/2 rounded-r-md'>
           <div className='p-8'>
             <h2 className='text-center text-3xl font-bold mb-8'>YOUR COURSE</h2>
           </div>
           <div>
             <div className='card mx-8 bg-base-200 rounded'>
               <figure>
-                <img src={data.img} alt='Shoes' />
+                <img className='w-full' src={data.img} alt={data.title} />
               </figure>
               <div className='card-body px-4'>
                 <h2 className='card-title'>{data.title}</h2>

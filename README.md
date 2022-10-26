@@ -26,7 +26,7 @@
 
 - I used vite to create a react app instead of `npm create-react-app` since its faster.
 - For styling I used Tailwind CSS and Daisy Ui for tailwind components.
-- For routing I used React Router and `npm install react-hot-toast` to genarate dynamic toasts.
+- For routing I used React Router and `npm install react-hot-toast` to generate dynamic toasts.
 - `npm i react-to-pdf -f` to generate a pdf of selected course details.
 - Firebase Authentication and a Protected Route to access 'Checkout' page to confirm purchase.
 - 404 page for error

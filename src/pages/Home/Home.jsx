@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import hero from "../../assets/images/hero2.svg";
 const Home = () => {
   return (
@@ -15,9 +16,11 @@ const Home = () => {
             Learn programming from scratch by building projects in the most
             interactive way.
           </p>
-          <button className='w-full lg:w-2/3 py-4 mt-12 text-lg font-semibold rounded-lg bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
-            Explore All Courses
-          </button>
+          <Link to='/courses'>
+            <button className='w-full lg:w-2/3 py-4 mt-12 text-lg font-semibold rounded-lg bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
+              Explore All Courses
+            </button>
+          </Link>
         </div>
         <div className='w-full lg:w-1/2 max-w-xl mx-auto px-4 pr-8 mt-8 lg:mt-0 flex'>
           <img className=' rounded-3xl mx-auto' src={hero} alt='' />
