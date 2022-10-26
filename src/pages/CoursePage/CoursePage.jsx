@@ -26,7 +26,7 @@ const CoursePage = () => {
           </div>
           <p className='my-4 text-lg'>Level up your skills with {title}</p>
           <p className='mb-4 italic'>{time}+ hours of total content</p>
-          <div className='mb-4 flex items-center'>
+          <div className='mb-4 sm:flex items-center'>
             <span className='text-amber-600 mr-4'>{rating}</span>
             <span className='text-yellow-500 mr-4 flex'>
               <svg
@@ -91,8 +91,7 @@ const CoursePage = () => {
               </svg>
             </span>
             <span className='mr-4'>{total_ratings} ratings </span>
-            <span></span>
-            <span>{enrolled} students enrolled </span>
+            <p>{enrolled} students enrolled </p>
           </div>
           <p>
             Course Creator:{" "}
@@ -104,7 +103,7 @@ const CoursePage = () => {
           </p>
           <p className='text-3xl font-bold mb-4'>${price}</p>
           <Link to={`/checkout/${course_id}`}>
-            <button className='w-full py-3 font-semibold rounded-lg bg-black bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
+            <button className='w-full py-3 font-semibold rounded-lg bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
               Buy this course
             </button>
           </Link>
