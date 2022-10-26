@@ -73,13 +73,7 @@ const Login = () => {
                         Email
                       </label>
                       <div className='flex'>
-                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                          <Icon
-                            path={mdiEmailOutline}
-                            size={1}
-                            className='text-gray-400'
-                          ></Icon>
-                        </div>
+                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                         <input
                           type='email'
                           name='email'
@@ -95,13 +89,7 @@ const Login = () => {
                         Password
                       </label>
                       <div className='flex'>
-                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                          <Icon
-                            path={mdiLockOutline}
-                            size={1}
-                            className='text-gray-400'
-                          ></Icon>
-                        </div>
+                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                         <input
                           type='password'
                           name='password'

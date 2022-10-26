@@ -6,7 +6,7 @@ const Courses = () => {
   const courses = useLoaderData();
   console.log(courses);
   return (
-    <div className='container mx-auto sm:flex gap-4 px-2'>
+    <div className='container mx-auto sm:flex gap-6 px-2 pb-10'>
       <div className='card bg-base-100 border h-max sm:w-1/4 rounded-sm mt-10'>
         <div className='card-body px-3 py-10 bg-gradient-to-r from-hero-dark-black to-hero-light-black text-white'>
           <h2 className='card-title'>All courses</h2>
@@ -21,7 +21,7 @@ const Courses = () => {
           ))}
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 sm:w-3/4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 sm:w-3/4'>
         {courses.map((data) => (
           <Card data={data} key={data.title}></Card>
         ))}

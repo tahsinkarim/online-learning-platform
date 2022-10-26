@@ -20,16 +20,78 @@ const CoursePage = () => {
     <div>
       <div className='bg-gradient-to-r from-hero-dark-black via-hero-light-black to-hero-dark-black pt-20 pb-16 px-4 text-white'>
         <div className='container mx-auto lg:max-w-6xl'>
+          <h2 className='text-2xl md:text-4xl font-bold my-4'>{title}</h2>
           <div>
             <img src={img} alt='' />
           </div>
-          <h2 className='text-2xl md:text-4xl font-bold mt-2'>{title}</h2>
           <p className='my-4 text-lg'>Level up your skills with {title}</p>
           <p className='mb-4 italic'>{time}+ hours of total content</p>
           <div className='mb-4 flex items-center'>
             <span className='text-amber-600 mr-4'>{rating}</span>
-            <span className='text-yellow-500 mr-4 flex'></span>
+            <span className='text-yellow-500 mr-4 flex'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='w-4 h-4'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
+                  clipRule='evenodd'
+                />
+              </svg>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='w-4 h-4'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
+                  clipRule='evenodd'
+                />
+              </svg>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='w-4 h-4'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
+                  clipRule='evenodd'
+                />
+              </svg>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='w-4 h-4'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
+                  clipRule='evenodd'
+                />
+              </svg>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='w-4 h-4'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
+                  clipRule='evenodd'
+                />
+              </svg>
+            </span>
             <span className='mr-4'>{total_ratings} ratings </span>
+            <span></span>
             <span>{enrolled} students enrolled </span>
           </div>
           <p>
@@ -48,18 +110,34 @@ const CoursePage = () => {
           </Link>
         </div>
       </div>
-      <div className='mt-12 container mx-auto lg:max-w-6xl'>
+      <div className='mt-12 container mx-auto lg:max-w-6xl px-4'>
         <div>
           <h1 className='font-bold text-2xl text-black'>Goals</h1>
           <ul className='my-5'>
             {goals.map((goal) => (
-              <li className='flex items-center'>
+              <li key={goal} className='flex items-center'>
+                <span className='text-green-700 mr-2'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={3}
+                    stroke='currentColor'
+                    className='w-5 h-5'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M4.5 12.75l6 6 9-13.5'
+                    />
+                  </svg>
+                </span>
                 <span>{goal}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div>
+        <div className='pb-10'>
           <h1 className='font-bold text-2xl text-black'>Description</h1>
           <p className='max-w-2xl mt-4'>{description}</p>
         </div>
