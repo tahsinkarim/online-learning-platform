@@ -1,5 +1,8 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const CoursePage = () => {
   const data = useLoaderData();
@@ -20,6 +23,18 @@ const CoursePage = () => {
     <div>
       <div className='bg-gradient-to-r from-hero-dark-black via-hero-light-black to-hero-dark-black pt-20 pb-16 px-4 text-white'>
         <div className='container mx-auto lg:max-w-6xl'>
+          <div className='flex justify-end'>
+            <Pdf targetRef={ref} filename='code-example.pdf'>
+              {({ toPdf }) => (
+                <button
+                  className='bg-green-600 py-1 px-3 rounded'
+                  onClick={toPdf}
+                >
+                  Generate Pdf
+                </button>
+              )}
+            </Pdf>
+          </div>
           <h2 className='text-2xl md:text-4xl font-bold my-4'>{title}</h2>
           <div>
             <img src={img} alt='' />
@@ -109,7 +124,7 @@ const CoursePage = () => {
           </Link>
         </div>
       </div>
-      <div className='mt-12 container mx-auto lg:max-w-6xl px-4'>
+      <div ref={ref} className='mt-12 container mx-auto lg:max-w-6xl px-4'>
         <div>
           <h1 className='font-bold text-2xl text-black'>Goals</h1>
           <ul className='my-5'>

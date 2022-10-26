@@ -24,7 +24,7 @@ const Card = ({ data }) => {
             <small>{author}</small>
           </span>
           <p className='text-sm text-yellow-600 font-semibold flex items-center gap-2'>
-            <span>{data.rating}</span>
+            <span>{rating}</span>
             <span className='flex '>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
