@@ -1,5 +1,3 @@
-import { mdiCodeGreaterThanOrEqual } from "@mdi/js";
-import Icon from "@mdi/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -32,7 +30,6 @@ const Footer = () => {
       <div className='container mx-auto footer px-10 py-4 '>
         <div className='items-center grid-flow-col'>
           <Link to='/' className='btn btn-ghost normal-case text-xl'>
-            <Icon path={mdiCodeGreaterThanOrEqual} size={2}></Icon>
             <span></span>
             Code It
           </Link>

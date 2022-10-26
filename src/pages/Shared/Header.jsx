@@ -1,5 +1,3 @@
-import { mdiCodeGreaterThanOrEqual } from "@mdi/js";
-import Icon from "@mdi/react";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -7,13 +5,6 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const [toggle, setToggle] = useState(true);
-
-  const userImage = () => {
-    if (user.photoURL) {
-      return user.photoURL;
-    }
-    return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR-l27mIia8PZNl8CAp-E65971pr0dLEfnwgOeOLIVHErs7yEixuAQ8hEd9gAbArgNAw4&usqp=CAU";
-  };
 
   const handleToggle = () => {
     setToggle(!toggle);
@@ -88,7 +79,6 @@ const Header = () => {
             to='/'
             className='btn btn-ghost normal-case text-lg md:text-2xl font-bold'
           >
-            <Icon path={mdiCodeGreaterThanOrEqual} size={1}></Icon>
             <span></span>
             Code It
           </Link>
@@ -126,13 +116,13 @@ const Header = () => {
             <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
               <img
                 className='w-9 h-9 object-cover rounded-full mx-2'
-                src={userImage()}
+                src={user.photoURL}
                 alt=''
               />
             </div>
           ) : (
             <Link className='btn btn-primary' to='/login'>
-              Login{" "}
+              Login
             </Link>
           )}
 

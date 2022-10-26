@@ -1,12 +1,5 @@
-import {
-  mdiAccountOutline,
-  mdiEmailOutline,
-  mdiImageOutline,
-  mdiLockOutline,
-} from "@mdi/js";
-import Icon from "@mdi/react";
 import React, { useContext, useState } from "react";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import LoginWith from "./LoginWith";
@@ -25,13 +18,12 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    const data = { displayName: name, photoURL: photoURL };
     createUser(email, password)
       .then((res) => {
         const user = res.user;
         form.reset();
         console.log(user);
-        handleUpdateInfo(data);
+        handleUpdateInfo(name, photoURL);
         toast.success("Successfully Registered");
         navigate("/");
       })
@@ -41,11 +33,15 @@ const Register = () => {
     console.log(name, email, photoURL, password);
   };
 
-  const handleUpdateInfo = (data) => {
+  const handleUpdateInfo = (name, photoURL) => {
+    const data = {
+      displayName: name,
+      photoURL: photoURL,
+    };
     updateInfo(data)
       .then(() => {})
       .catch((error) => {
-        setError(error.message);
+        console.log(error);
       });
   };
 
@@ -295,13 +291,7 @@ const Register = () => {
                         Full name
                       </label>
                       <div className='flex'>
-                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                          <Icon
-                            path={mdiAccountOutline}
-                            size={1}
-                            className='text-gray-400'
-                          ></Icon>
-                        </div>
+                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                         <input
                           type='text'
                           name='name'
@@ -317,13 +307,7 @@ const Register = () => {
                         Photo Url
                       </label>
                       <div className='flex'>
-                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                          <Icon
-                            path={mdiImageOutline}
-                            size={1}
-                            className='text-gray-400'
-                          ></Icon>
-                        </div>
+                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                         <input
                           type='text'
                           name='photoURL'
@@ -339,13 +323,7 @@ const Register = () => {
                         Email
                       </label>
                       <div className='flex'>
-                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                          <Icon
-                            path={mdiEmailOutline}
-                            size={1}
-                            className='text-gray-400'
-                          ></Icon>
-                        </div>
+                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                         <input
                           type='email'
                           name='email'
@@ -361,13 +339,7 @@ const Register = () => {
                         Password
                       </label>
                       <div className='flex'>
-                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                          <Icon
-                            path={mdiLockOutline}
-                            size={1}
-                            className='text-gray-400'
-                          ></Icon>
-                        </div>
+                        <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                         <input
                           type='password'
                           name='password'

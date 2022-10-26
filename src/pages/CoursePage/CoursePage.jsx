@@ -1,6 +1,3 @@
-import { mdiCheck, mdiStar, mdiStarHalfFull } from "@mdi/js";
-import Icon from "@mdi/react";
-
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -31,13 +28,7 @@ const CoursePage = () => {
           <p className='mb-4 italic'>{time}+ hours of total content</p>
           <div className='mb-4 flex items-center'>
             <span className='text-amber-600 mr-4'>{rating}</span>
-            <span className='text-yellow-500 mr-4 flex'>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStarHalfFull}></Icon>
-            </span>
+            <span className='text-yellow-500 mr-4 flex'></span>
             <span className='mr-4'>{total_ratings} ratings </span>
             <span>{enrolled} students enrolled </span>
           </div>
@@ -63,11 +54,6 @@ const CoursePage = () => {
           <ul className='my-5'>
             {goals.map((goal) => (
               <li className='flex items-center'>
-                <Icon
-                  size={1}
-                  className='text-green-700 mr-4'
-                  path={mdiCheck}
-                ></Icon>
                 <span>{goal}</span>
               </li>
             ))}

@@ -1,5 +1,3 @@
-import { mdiArrowRightThin, mdiStar, mdiStarHalfFull } from "@mdi/js";
-import Icon from "@mdi/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -27,13 +25,7 @@ const Card = ({ data }) => {
           </span>
           <p className='text-sm text-yellow-600 font-semibold flex items-center gap-2'>
             <span>{data.rating}</span>
-            <span className='flex'>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStar}></Icon>
-              <Icon size={0.7} path={mdiStarHalfFull}></Icon>
-            </span>
+            <span className='flex'></span>
           </p>
           <p>
             <small>$</small>
@@ -49,7 +41,6 @@ const Card = ({ data }) => {
             className='text-clr-violet font-semibold flex items-center'
           >
             <span>Details</span>
-            <Icon size={1} path={mdiArrowRightThin}></Icon>
           </Link>
         </div>
       </div>

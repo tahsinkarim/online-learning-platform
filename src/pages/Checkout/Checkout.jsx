@@ -1,29 +1,14 @@
-import { mdiAccountOutline, mdiEmailOutline, mdiLockOutline } from "@mdi/js";
-import Icon from "@mdi/react";
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import Card from "../Shared/Card";
 
 const Checkout = () => {
   const data = useLoaderData();
-  const [userInfo, setUserInfo] = useState();
-  const { title, img, author, rating, price, previous_price, course_id } = data;
-  const newObj = {
-    title: title,
-    img: img,
-    author: author.name,
-    rating: rating,
-    price: price,
-    previous_price: previous_price,
-    id: course_id,
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    setUserInfo({ name: name, email: email });
   };
 
   console.log(data);
@@ -45,13 +30,7 @@ const Checkout = () => {
                   Full name
                 </label>
                 <div className='flex'>
-                  <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                    <Icon
-                      path={mdiAccountOutline}
-                      size={1}
-                      className='text-gray-400'
-                    ></Icon>
-                  </div>
+                  <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                   <input
                     type='text'
                     name='name'
@@ -67,13 +46,7 @@ const Checkout = () => {
                   Email
                 </label>
                 <div className='flex'>
-                  <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                    <Icon
-                      path={mdiEmailOutline}
-                      size={1}
-                      className='text-gray-400'
-                    ></Icon>
-                  </div>
+                  <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                   <input
                     type='email'
                     name='email'
@@ -89,13 +62,7 @@ const Checkout = () => {
                   Password
                 </label>
                 <div className='flex'>
-                  <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-                    <Icon
-                      path={mdiLockOutline}
-                      size={1}
-                      className='text-gray-400'
-                    ></Icon>
-                  </div>
+                  <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                   <input
                     type='password'
                     name='password'
@@ -120,10 +87,8 @@ const Checkout = () => {
           <input type='checkbox' id='my-modal' className='modal-toggle' />
           <div className='modal'>
             <div className='modal-box'>
-              <h3 className='font-bold text-lg'>
-                Congratulations {userInfo?.name}!
-              </h3>
-              <p className='py-4'>You have successfully purchased {title}!</p>
+              <h3 className='font-bold text-lg'>Congratulations!</h3>
+              <p className='py-4'>You have successfully purchased!</p>
               <div className='modal-action'>
                 <label htmlFor='my-modal' className='btn'>
                   <Link to='/'>Go Back to Home</Link>
@@ -136,7 +101,6 @@ const Checkout = () => {
         <div className='md:w-1/2 bg-base-100 rounded-r-md'>
           <div className='p-8'>
             <h2 className='text-center text-3xl font-bold mb-8'>YOUR ITEM</h2>
-            <Card data={newObj}></Card>
           </div>
         </div>
       </div>

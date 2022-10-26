@@ -1,7 +1,5 @@
-import { mdiEmailOutline, mdiLockOutline } from "@mdi/js";
-import Icon from "@mdi/react";
 import React, { useContext, useState } from "react";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import LoginWith from "./LoginWith";
