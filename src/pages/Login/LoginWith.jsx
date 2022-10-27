@@ -1,5 +1,6 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -18,7 +19,6 @@ const LoginWith = () => {
     providerLogin(googleProvider)
       .then((res) => {
         const user = res.user;
-        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -29,7 +29,6 @@ const LoginWith = () => {
     providerLogin(githubProvider)
       .then((res) => {
         const user = res.user;
-        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -43,9 +42,10 @@ const LoginWith = () => {
         <div className='w-full px-3 mb-2'>
           <button
             onClick={handleGoogleLogin}
-            className='flex gap-7 w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 text-white rounded-lg px-3 py-2 font-semibold'
+            className='items-center flex gap-7 w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 text-white rounded-lg px-3 py-2 font-semibold'
           >
-            Continue With Google
+            <FaGoogle className='text-2xl ml-3'></FaGoogle>
+            <span>Continue With Google</span>
           </button>
         </div>
       </div>
@@ -53,9 +53,10 @@ const LoginWith = () => {
         <div className='w-full px-3 mb-2'>
           <button
             onClick={handleGithubLogin}
-            className='flex gap-7 w-full max-w-xs mx-auto bg-gray-800 hover:bg-black focus:bg-black text-white rounded-lg px-3 py-2 font-semibold'
+            className='items-center flex gap-7 w-full max-w-xs mx-auto bg-gray-800 hover:bg-black focus:bg-black text-white rounded-lg px-3 py-2 font-semibold'
           >
-            Continue with Github
+            <FaGithub className='text-2xl ml-3'></FaGithub>
+            <span>Continue with Github</span>
           </button>
         </div>
       </div>

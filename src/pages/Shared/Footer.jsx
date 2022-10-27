@@ -6,18 +6,18 @@ const Footer = () => {
     <footer className='bg-gradient-to-r from-hero-dark-black via-hero-light-black to-hero-dark-black text-white'>
       <div className='footer p-10 container mx-auto'>
         <div>
-          <span className='footer-title'>Services</span>
-          <a className='link link-hover'>Branding</a>
-          <a className='link link-hover'>Design</a>
-          <a className='link link-hover'>Marketing</a>
-          <a className='link link-hover'>Advertisement</a>
+          <span className='footer-title'>Solutions</span>
+          <a className='link link-hover'>Create a free account</a>
+          <a className='link link-hover'>Learning paths</a>
+          <a className='link link-hover'>Student account</a>
+          <a className='link link-hover'>What should I learn ?</a>
         </div>
         <div>
           <span className='footer-title'>Company</span>
           <a className='link link-hover'>About us</a>
           <a className='link link-hover'>Contact</a>
-          <a className='link link-hover'>Jobs</a>
-          <a className='link link-hover'>Press kit</a>
+          <a className='link link-hover'>Pricing</a>
+          <a className='link link-hover'>Work at Code It</a>
         </div>
         <div>
           <span className='footer-title'>Legal</span>
@@ -49,6 +49,7 @@ const Footer = () => {
             <span>Code It</span>
           </Link>
         </div>
+        <p className='sm:pt-4'>© codeit™ 2022 | All rights reserved.</p>
         <div className='md:place-self-center md:justify-self-end'>
           <div className='grid grid-flow-col gap-4'>
             <a href='https://twitter.com/'>

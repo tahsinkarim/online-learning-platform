@@ -6,7 +6,7 @@ const Faq = () => {
       <p className='mb-0 mt-16 max-w-2xl'>
         <small>OCTOBER 27, 2022 / #CODIT</small>
       </p>
-      <h1 className='text-3xl sm:text-5xl font-bold  mb-4'>
+      <h1 className='text-3xl sm:text-5xl font-bold mb-8'>
         About Code It - Frequently Asked Questions
       </h1>
       <div className=''>

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -10,9 +11,8 @@ const Checkout = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    toast.success("Successfully Purchased");
   };
-
-  console.log(data);
   return (
     <div className='bg-base-300 py-20'>
       <div className='container lg:max-w-5xl mx-auto px-2 md:flex py-10 bg-base-100'>
@@ -22,7 +22,7 @@ const Checkout = () => {
             className='bg-base-100 p-8 rounded-l-md'
           >
             <div className='text-center mb-10'>
-              <h1 className='font-bold text-3xl text-gray-900'>CHECKOUT</h1>
+              <h1 className='font-bold text-3xl'>CHECKOUT</h1>
               <p>Enter your information to purchase</p>
             </div>
             <div className='flex -mx-3'>
@@ -35,7 +35,7 @@ const Checkout = () => {
                   <input
                     type='text'
                     name='name'
-                    value={user?.displayName && user.displayName}
+                    defaultValue={user?.displayName && user.displayName}
                     className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
                     placeholder='John'
                   />
@@ -51,7 +51,7 @@ const Checkout = () => {
                   <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                   <input
                     readOnly
-                    value={user?.email}
+                    defaultValue={user?.email}
                     type='email'
                     name='email'
                     className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
@@ -68,7 +68,6 @@ const Checkout = () => {
                 <div className='flex'>
                   <div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'></div>
                   <input
-                    required
                     type='password'
                     name='password'
                     className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'

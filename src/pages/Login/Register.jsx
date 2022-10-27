@@ -22,7 +22,6 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
         form.reset();
-        console.log(user);
         handleUpdateInfo(name, photoURL);
         toast.success("Successfully Registered");
         navigate("/");
@@ -30,7 +29,6 @@ const Register = () => {
       .catch((error) => {
         setError(error.message);
       });
-    console.log(name, email, photoURL, password);
   };
 
   const handleUpdateInfo = (name, photoURL) => {
@@ -47,7 +45,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className='min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5'>
+      <div className='min-w-screen min-h-screen bg-base-300 flex items-center justify-center px-5 py-5'>
         <div
           className='bg-gray-100 text-gray-500 rounded-xl shadow-xl w-full overflow-hidden'
           style={{ maxWidth: "1000px" }}

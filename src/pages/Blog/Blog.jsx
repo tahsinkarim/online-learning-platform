@@ -30,7 +30,7 @@ const Blog = () => {
   return (
     <div className='container mx-auto max-w-5xl py-10'>
       {blogs.map((blog) => (
-        <div className='card bg-base-200 mx-4 my-4'>
+        <div key={blog.ques} className='card bg-base-200 mx-4 my-4'>
           <div className='card-body'>
             <h2 className='card-title'>{blog.ques}</h2>
             <hr />

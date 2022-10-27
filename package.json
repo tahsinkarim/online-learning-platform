@@ -11,14 +11,21 @@
   "dependencies": {
     "@mdi/js": "^7.0.96",
     "@mdi/react": "^1.6.1",
+    "@types/react-slick": "^0.23.10",
     "daisyui": "^2.33.0",
     "firebase": "^9.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.6.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.4.2",
-    "react-to-pdf": "^0.0.14"
+    "react-simple-typewriter": "^4.0.5",
+    "react-slick": "^0.29.0",
+    "react-to-pdf": "^0.0.14",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^8.4.4",
+    "theme-change": "^2.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

@@ -8,7 +8,7 @@ const Card = ({ data }) => {
     newTitle = newTitle.slice(0, 45) + "...";
   }
   return (
-    <div className='card bg-base-100 rounded-none shadow-md'>
+    <div className='card dark:bg-base-200 rounded-none shadow-md'>
       <figure>
         <Link to={`/course/${id}`}>
           <img src={img} alt='Shoes' />

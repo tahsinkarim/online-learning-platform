@@ -126,7 +126,7 @@ const CoursePage = () => {
       </div>
       <div ref={ref} className='mt-12 container mx-auto lg:max-w-6xl px-4'>
         <div>
-          <h1 className='font-bold text-2xl text-black'>Goals</h1>
+          <h1 className='font-bold text-2xl'>Goals</h1>
           <ul className='my-5'>
             {goals.map((goal) => (
               <li key={goal} className='flex items-center'>
@@ -152,7 +152,7 @@ const CoursePage = () => {
           </ul>
         </div>
         <div className='pb-10'>
-          <h1 className='font-bold text-2xl text-black'>Description</h1>
+          <h1 className='font-bold text-2xl'>Description</h1>
           <p className='max-w-2xl mt-4'>{description}</p>
         </div>
       </div>

@@ -9,7 +9,6 @@ const Header = () => {
   const handleToggle = () => {
     setToggle(!toggle);
   };
-  console.log(user);
 
   const handleLogout = () => {
     logout()
@@ -18,10 +17,11 @@ const Header = () => {
         console.error(error);
       });
   };
+
   return (
     <div>
       <div
-        className={`navbar bg-base-100 shadow-md ${
+        className={`navbar shadow-md ${
           toggle ? "bg-base-100" : "bg-hero-light-black text-white"
         }`}
       >
@@ -61,17 +61,15 @@ const Header = () => {
               <li>
                 <Link to='/blog'>Blog</Link>
               </li>
-              <li>
-                <p
-                  onClick={handleToggle}
-                  className={`${
-                    toggle
-                      ? "bg-hero-light-black text-white"
-                      : "bg-base-100 text-black"
-                  }`}
-                >
-                  {toggle ? "Dark Theme" : "Light Theme"}
-                </p>
+              <li className='items-center'>
+                <button>
+                  <input
+                    onChange={handleToggle}
+                    type='checkbox'
+                    className='toggle py-1'
+                    checked={!toggle}
+                  />
+                </button>
               </li>
             </ul>
           </div>
@@ -112,17 +110,15 @@ const Header = () => {
             <li>
               <Link to='/blog'>Blog</Link>
             </li>
-            <li>
-              <p
-                onClick={handleToggle}
-                className={`${
-                  toggle
-                    ? "bg-hero-light-black text-white"
-                    : "bg-base-100 text-black"
-                }`}
-              >
-                {toggle ? "Dark Theme" : "Light Theme"}
-              </p>
+            <li className='items-center'>
+              <button>
+                <input
+                  onChange={handleToggle}
+                  type='checkbox'
+                  className='toggle py-1'
+                  checked={!toggle}
+                />
+              </button>
             </li>
           </ul>
         </div>
