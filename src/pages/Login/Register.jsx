@@ -10,6 +10,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  // Register form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
@@ -31,6 +32,7 @@ const Register = () => {
       });
   };
 
+  // Name ans photo update
   const handleUpdateInfo = (name, photoURL) => {
     const data = {
       displayName: name,

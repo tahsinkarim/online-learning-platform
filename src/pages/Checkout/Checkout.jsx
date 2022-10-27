@@ -7,6 +7,7 @@ const Checkout = () => {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
 
+  //Check out confirmation
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

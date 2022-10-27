@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 const Card = ({ data }) => {
   const { title, img, author, rating, price, previous_price, id } = data;
+
+  // Truncate if title is too long
   let newTitle = title;
   if (newTitle.length > 45) {
     newTitle = newTitle.slice(0, 45) + "...";

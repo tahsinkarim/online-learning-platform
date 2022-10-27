@@ -2,9 +2,11 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Pdf from "react-to-pdf";
 
+// For printing pdf
 const ref = React.createRef();
 
 const CoursePage = () => {
+  // Course details
   const data = useLoaderData();
   const {
     img,
@@ -19,6 +21,7 @@ const CoursePage = () => {
     author,
     course_id,
   } = data;
+
   return (
     <div>
       <div className='bg-gradient-to-r from-hero-dark-black via-hero-light-black to-hero-dark-black pt-20 pb-16 px-4 text-white'>
@@ -119,7 +122,7 @@ const CoursePage = () => {
           <p className='text-3xl font-bold mb-4'>${price}</p>
           <Link to={`/checkout/${course_id}`}>
             <button className='w-full py-3 font-semibold rounded-lg bg-gradient-to-r from-clr-violet to-clr-aqua hover:from-clr-aqua hover:to-clr-violet'>
-              Buy this course
+              Get premium access
             </button>
           </Link>
         </div>

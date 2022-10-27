@@ -6,15 +6,17 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const LoginWith = () => {
   const { providerLogin } = useContext(AuthContext);
-
+  // Google and github provider
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
+  // Get previous location
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
 
+  // Google Login
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
       .then((res) => {
@@ -25,6 +27,8 @@ const LoginWith = () => {
         console.error(error);
       });
   };
+
+  // Github Login
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
       .then((res) => {

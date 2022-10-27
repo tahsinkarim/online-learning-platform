@@ -11,6 +11,8 @@ const HomeCards = () => {
       .then((res) => res.json())
       .then((data) => setCards(data));
   }, []);
+
+  // Sliding animation
   const settings = {
     dots: false,
     infinite: true,

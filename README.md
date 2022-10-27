@@ -31,3 +31,5 @@
 - Firebase Authentication and a Protected Route to access 'Checkout' page to confirm purchase.
 - 404 page for error
 - All the course data was fetched from an API created with Express js and hosted on vercel.
+
+### Live site: [https://simple-firebase-project-4c1bb.web.app/](https://simple-firebase-project-4c1bb.web.app/)

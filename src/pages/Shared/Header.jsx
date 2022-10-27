@@ -4,12 +4,15 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  // Dark and light toggler
   const [toggle, setToggle] = useState(true);
 
+  // Toggle function
   const handleToggle = () => {
     setToggle(!toggle);
   };
 
+  // User log out
   const handleLogout = () => {
     logout()
       .then(() => {})

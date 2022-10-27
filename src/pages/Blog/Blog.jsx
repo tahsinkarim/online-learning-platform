@@ -1,6 +1,7 @@
 import React from "react";
 
 const Blog = () => {
+  // Blog data
   const blogs = [
     {
       ques: "What is CORS?",
@@ -27,6 +28,7 @@ const Blog = () => {
         "Node.js is written in C, C++, and JavaScript, and it is built on the open-source V8 JavaScript engine which also powers JS in browsers such as Google Chrome. As V8 supports new features in JavaScript, they are incorporated into Node.",
     },
   ];
+
   return (
     <div className='container mx-auto max-w-5xl py-10'>
       {blogs.map((blog) => (
