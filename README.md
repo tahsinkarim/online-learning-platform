@@ -1,6 +1,8 @@
 # Code It
 
-## Online based programming language learning platform
+## ABOUT
+
+- A Programming language learning app with Firebase authentication and Private route.
 
 ## 🛠 &nbsp;Tech Stack Used
 
@@ -17,10 +19,6 @@
 
 - react-hot-toast (for notifications on login)
 - react-to-pdf (to generate a pdf for course details)
-
-## ABOUT
-
-- A Programming language learning app with Firebase authentication and Private route.
 
 ## STEPS
 
